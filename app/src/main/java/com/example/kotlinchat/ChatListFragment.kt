@@ -15,7 +15,7 @@ class ChatListFragment : Fragment() {
     private lateinit var binding:FragmentChatListBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-        binding = FragmentChatListBinding.inflate(layoutInflater)
+        binding = FragmentChatListBinding.inflate(inflater,container,false)
 
         val menuHost:MenuHost = requireActivity()
 

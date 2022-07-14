@@ -6,23 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
+import com.example.kotlinchat.databinding.FragmentSettingsBinding
 
 
 class SettingsFragment : Fragment() {
 
+    private lateinit var binding:FragmentSettingsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_settings, container, false)
+    ): View {
+        binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
-        view.setOnClickListener {
+        binding.root.setOnClickListener {
             val navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_frag) as NavHostFragment
             val navController = navHostFragment.navController
             val action = SettingsFragmentDirections.actionSettingsToAccSettings()
             navController.navigate(action)
         }
 
-        return view
+        return binding.root
     }
 }
