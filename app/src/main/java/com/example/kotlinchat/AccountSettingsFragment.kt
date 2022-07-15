@@ -1,23 +1,15 @@
 package com.example.kotlinchat
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.kotlinchat.databinding.FragmentAccountSettingsBinding
+import androidx.preference.PreferenceFragmentCompat
 
 
-class AccountSettingsFragment : Fragment() {
-    private lateinit var binding:FragmentAccountSettingsBinding
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        binding = FragmentAccountSettingsBinding.inflate(inflater,container,false)
+class AccountSettingsFragment : PreferenceFragmentCompat() {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.account_settings,rootKey)
 
 
-        return binding.root
+
     }
+
 }
