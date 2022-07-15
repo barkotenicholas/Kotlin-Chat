@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
+import androidx.preference.SwitchPreference
 import com.example.kotlinchat.databinding.FragmentSettingsBinding
 
 
@@ -56,6 +57,15 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     true
                 }
             }
+
+        val notif = findPreference<Preference>(getString(R.string.key_new_msg_notif))
+        notif?.summaryProvider = Preference.SummaryProvider<SwitchPreference> {
+            if(it.isChecked){
+                "Status: On"
+            }else{
+                "Status: off"
+            }
+        }
     }
 
 
