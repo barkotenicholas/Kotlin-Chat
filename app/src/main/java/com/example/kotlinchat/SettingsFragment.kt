@@ -2,22 +2,14 @@ package com.example.kotlinchat
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
-import androidx.preference.Preference
-import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceManager
-import androidx.preference.SwitchPreference
-import com.example.kotlinchat.databinding.FragmentSettingsBinding
+import androidx.preference.*
 
 
 class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.settings,rootKey)
+        setPreferencesFromResource(R.xml.setqtings,rootKey)
 
         val accSettingsPref = findPreference<Preference>(getString(R.string.key_account_settings))
 
@@ -59,7 +51,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             }
 
         val notif = findPreference<Preference>(getString(R.string.key_new_msg_notif))
-        notif?.summaryProvider = Preference.SummaryProvider<SwitchPreference> {
+        notif?.summaryProvider = Preference.SummaryProvider<SwitchPreferenceCompat> {
             if(it.isChecked){
                 "Status: On"
             }else{
